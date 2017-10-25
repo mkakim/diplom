@@ -1,0 +1,56 @@
+<!--<div id="page_header_cont">
+    <div class="back">
+
+    </div>
+</div>-->
+<div ng-include="'/templates/parts/userHeader.html'"></div>
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Входящие письма</h2>
+        <br/>
+        <div class="col-lg-4">
+            <ul class="nav nav-tabs">
+                <li>
+                    <!--<a ng-click="vm.letterShow = !vm.letterShow" class="aaa" style="cursor: pointer">Письма</a>
+                    <a ng-click="vm.announcementsShow = !vm.announcementsShow" class="aaa">Обьявления</a>-->
+                    <input type="submit" class="btn btn-success btn-lg" value="Письма" ng-click="vm.getLetter()">
+                    <input type="submit" class="btn btn-default btn-lg" value="Обьявления" ng-click="vm.getAnnouncement()">
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="well well-sm">
+                    <div ng-show="vm.letterShow">
+                        {{vm.iin}}
+                    </div>
+                    <div ng-show="vm.announcementsShow">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Объявление</th>
+                                    <th>Время отправки</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="data in vm.data">
+                                <tr>
+                                    <td>
+                                        {{data.description}}
+                                    </td>
+                                    <td>
+                                        {{data.announTime | date: 'dd/MM/yyyy'}}
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

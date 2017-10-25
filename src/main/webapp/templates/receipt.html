@@ -1,0 +1,105 @@
+<div ng-include="'/templates/parts/userHeader.html'"></div>
+<div class="col-lg-12">
+    <div class="row">
+        ФИО : <strong>{{vm.payer.lastname}} {{vm.payer.firstname}}</strong>
+        <p>Адрес проживания : <strong>{{vm.payer.address}}</strong></p>
+        <p>Дата: <strong>{{vm.waterPokazanie.payDate}}</strong></p>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Оплата</th>
+                    <th>Пред.показание</th>
+                    <th>Текущее показание</th>
+                    <th>Стоймость</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{vm.waterPokazanie.name}}</td>
+                    <td>{{(vm.waterPokazanie.payment * vm.gvs.gvsPayMoneyInMonth).toFixed(2)}}</td>
+                    <td>{{vm.waterPokazanie.previousIndication}}</td>
+                    <td>{{vm.waterPokazanie.lastIndication}}</td>
+                    <td>{{vm.gvs.gvsPayMoneyInMonth}} тг/кВт*ч</td>
+                </tr>
+                <tr>
+                    <td>{{vm.electrPokazanie.name}}</td>
+                    <td>{{vm.electrPayMoneyMonth * vm.electrPokazanie.payment}}</td>
+                    <td>{{vm.electrPokazanie.previousIndication}}</td>
+                    <td>{{vm.electrPokazanie.lastIndication}}</td>
+                    <td>{{vm.electrPayMoneyMonth}}</td>
+                </tr>
+                <tr>
+                    <td>{{vm.garbageRemoval.name}}</td>
+                    <td>{{(vm.garbageRemoval.value * vm.payer.numberOfPersons).toFixed(2)}}</td>
+                    <td align="center">TOO "Астана Тазарту"</td>
+                    <td></td>
+                    <td>{{vm.garbageRemoval.value}} тг/чел</td>
+                </tr>
+                <tr>
+                    <td>{{vm.cctv.name}}</td>
+                    <td>{{vm.cctv.value}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{vm.cctv.value}}</td>
+                </tr>
+                <tr>
+                    <td>{{vm.gvs.name}}</td>
+                    <td>{{(vm.gvs.gvsPayMoneyInMonth * vm.payer.numberOfPersons).toFixed(2)}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{vm.gvs.gvsPayMoneyInMonth}} тг/чел</td>
+                </tr>
+                </tbody>
+            </table>
+            <!--<input type="button" value="Оплатить" class="btn btn-success" ng-click="vm.pay()">-->
+            <p style="float: right; border: groove">Итого: {{vm.sum1 + vm.sum2}} тг.</p>
+            <br/>
+
+            <!--<div ng-show="vm.showPayment">
+                <div class="col-md-7">
+                    <div class="col-md-2">
+                        <label for="personal" class="control-label">Лицевой счет:</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" id="personal" ng-model="vm.payObject.personalAccount" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-2">
+                        <label for="amount">Сумма к зацислению:</label>
+                    </div>
+                    <div class="col-md-5" id="amount">
+                        <input type="text" ng-model="vm.payObject.amountToGrid" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-2">
+                        <label for="amount">Сумма для оплаты:</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" ng-model="vm.sum1 + vm.sum2" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="col-md-2">
+                        <label for="singleSelect">Средство оплаты: </label>
+                    </div>
+                    <div class="col-md-5">
+                        <select name="singleSelect" id="singleSelect" ng-model="vm.payObject.paymentSelect">
+                            <option value="">&#45;&#45; не выбрано &#45;&#45;</option>
+                            <option value="option - 1">WebMoney WMR</option>
+                            <option value="option - 2">Яндекс деньги</option>
+                            <option value="option - 3">KIWI Wallet</option>
+                            <option value="option - 4">VISA</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>-->
+        </div>
+    </div>
+
+</div>
